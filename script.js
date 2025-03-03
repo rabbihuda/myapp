@@ -41,7 +41,7 @@ function displayTask(task, index) {
 }
 
 // Function to add a new task
-function addTask() {
+/*function addTask() {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     let taskText = document.getElementById("new-task").value.trim();
     let taskUrl = document.getElementById("task-url").value.trim();
@@ -54,7 +54,46 @@ function addTask() {
     tasks.push({ text: taskText, url: taskUrl, completed: false, startDate: null, finishDate: null });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    
     loadTasks();
+}*/
+
+// Function to add a new task with validation
+function addTask() {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let taskText = document.getElementById("new-task").value.trim();
+    let taskUrl = document.getElementById("task-url").value.trim();
+
+    // Task text validation
+    if (taskText === "") {
+        alert("Please enter a valid task.");
+        return;
+    }
+
+    // Check for duplicate task
+    if (tasks.some(task => task.text.toLowerCase() === taskText.toLowerCase())) {
+        alert("This task already exists.");
+        return;
+    }
+
+    // URL validation (if provided)
+    if (taskUrl && !isValidURL(taskUrl)) {
+        alert("Please enter a valid URL.");
+        return;
+    }
+
+    // Add new task
+    tasks.push({ text: taskText, url: taskUrl, completed: false, startDate: null, finishDate: null });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    document.getElementById("new-task").value = ""; // Clear input after adding
+    document.getElementById("task-url").value = ""; // Clear URL input
+    loadTasks();
+}
+
+// Function to validate URL
+function isValidURL(url) {
+    let pattern = /^(https?:\/\/)?([\w\d-]+\.)+[\w]+(\/[\w\d-]*)*\/?$/;
+    return pattern.test(url);
 }
 
 // Toggle task completion
