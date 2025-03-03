@@ -1,0 +1,127 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Container */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Container */
+.dark-mode .container {
+    background: #1e1e1e;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Input Fields */
+input {
+    width: 80%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+li {
+    padding: 12px;
+    margin: 8px 0;
+    background: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode li {
+    background: #333;
+}
+
+/* Task Text */
+.task-text {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Task Buttons */
+.task-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.task-buttons button {
+    flex: 1;
+    margin: 3px;
+}
+
+.task-buttons .delete-btn {
+    background: #dc3545;
+}
+
+.task-buttons .delete-btn:hover {
+    background: #c82333;
+}
+
+/* File Controls */
+.file-controls {
+    margin-top: 15px;
+}
